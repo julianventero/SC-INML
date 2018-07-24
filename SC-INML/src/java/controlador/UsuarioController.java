@@ -27,6 +27,8 @@ public class UsuarioController implements Serializable {
     private fachada.UsuarioFacade ejbFacade;
     private List<Usuario> items = null;
     private Usuario selected;
+    private String usuarioLogin;
+    private String contraseñaLogin;
 
     public UsuarioController() {
     }
@@ -162,4 +164,22 @@ public class UsuarioController implements Serializable {
 
     }
 
+  
+    public String getUsuarioLogin() {
+        return usuarioLogin;
+    }
+
+    public void setUsuarioLogin(String usuarioLogin) {
+        this.usuarioLogin = usuarioLogin;
+    }
+
+    public String getContraseñaLogin() {
+        return contraseñaLogin;
+    }
+
+    public void setContraseñaLogin(String contraseñaLogin) {
+        this.contraseñaLogin = contraseñaLogin;
+    }
+
+    
 }
