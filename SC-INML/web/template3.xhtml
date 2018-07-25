@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,27 +15,35 @@
     <h:body>
 
 
-        <div id="top" class="top">
-            <ui:insert name="top">
+        <div id="top" class="top" >
+            
             
                 <h:outputText value="Esto es lo de arriba" />
+                
             
-            </ui:insert>
         </div>
         <div>
-            <div id="left">
-                <ui:insert name="left"> Izquierda <br> </br>
+            <div id="left" class="left">
                 
-                    <img src="INML.jpg"> </img><br> </br>
-                </ui:insert>
+                <img src="INML.jpg"> </img><br> </br>
+                
             </div>
             <div id="content" class="left_content">
-                <ui:insert name="content"> Contenido  <br> </br>
-                
-                    <h:outputText value="Inicio"/> <br> </br>
-                    <h:outputText value="Encuestas"/> <br> </br>
-                    <h:outputText value="Informes estadisticos"/>
+                <ui:insert name="content" > Contenido  <br> </br>
+               
+                    <h:form>
+                        <p:growl id="messages" showDetail="false"/>
+                        <p:menu>
+                                        
+                            
+                                <p:menuitem value="Inicio" actionListener="#{menuView.save}" update="messages" icon="ui-icon-home" />
+                                <p:menuitem value="Registrar encuestas" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                                <p:menuitem value="Informes estadisticos" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk" />
+                            
+                        </p:menu>
+                    </h:form>
                     
+                                   
                 </ui:insert>
             </div>
         </div>
