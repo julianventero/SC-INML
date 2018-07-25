@@ -32,7 +32,28 @@ public class MenuView {
         firstSubmenu.addElement(item);
          
         model.addElement(firstSubmenu);
-
+         
+        //Second submenu
+        DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
+ 
+        item = new DefaultMenuItem("Save");
+        item.setIcon("ui-icon-disk");
+        item.setCommand("#{menuView.save}");
+        item.setUpdate("messages");
+        secondSubmenu.addElement(item);
+         
+        item = new DefaultMenuItem("Delete");
+        item.setIcon("ui-icon-close");
+        item.setCommand("#{menuView.delete}");
+        item.setAjax(false);
+        secondSubmenu.addElement(item);
+         
+        item = new DefaultMenuItem("Redirect");
+        item.setIcon("ui-icon-search");
+        item.setCommand("#{menuView.redirect}");
+        secondSubmenu.addElement(item);
+ 
+        model.addElement(secondSubmenu);
     }
  
     public MenuModel getModel() {
