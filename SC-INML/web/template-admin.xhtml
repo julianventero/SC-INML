@@ -16,32 +16,42 @@
         <p:growl id="growl" life="3000" />
 
         <p:layout style="min-width:1110px;min-height:631px;">
+            <!-- Layout de la parte superior-->
             <p:layoutUnit position="north" size="44" header="Sistema de encuestas de satisfacción clientes"> </p:layoutUnit>
-            
+            <!-- Layout para el menu izquierdo-->
             <p:layoutUnit position="west" resizable="true" size="800" minSize="100" maxSize="245">
+                <!-- Logo INML-->
                 <img src="INML.jpg"> </img><br> </br>
                 
-                    <h:form>
-                        <p:growl id="messages" showDetail="false"/>
-                        <p:menu>
-                                        
-                            
-                                <p:menuitem value="Inicio" actionListener="#{menuView.save}" update="messages" icon="ui-icon-home" />
-                                <p:menuitem value="Registrar encuestas" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
-                                <p:menuitem value="Informes estadisticos" actionListener="#{menuView.delete}" update="messages" icon="ui-icon-disk" />
-                            
-                        </p:menu>
-                    </h:form>
+                <h:form>
+                
+                    <p:growl id="messages" showDetail="false"/>
+                    <p:panelMenu>
+                        <p:menuitem value="Inicio" icon="ui-icon-home" />
+                        <p:submenu label="Registrar/Consultar">
+
+                            <p:menuitem value="Aspectos"  icon="ui-icon-disk" />
+                            <p:menuitem value="Criterios" icon="ui-icon-disk" outcome="/criterio/Crear"/>
+                            <p:menuitem value="Usuarios" icon="ui-icon-arrowrefresh-1-w" />
+
+                        </p:submenu>
+                    </p:panelMenu>
+                
+                </h:form>    
                     
             </p:layoutUnit>
  
+            <!-- Layout para el contenido dinamico-->
             <p:layoutUnit position="center">
                 <ui:insert name="contenido" > 
                 Aqui va el contenido
                 </ui:insert>
+            
             </p:layoutUnit>
+        
         </p:layout>
     
     </h:body>
 
 </html>
+
