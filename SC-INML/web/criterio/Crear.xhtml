@@ -17,13 +17,16 @@
 
                                 <p:outputLabel value="#{bundle.CreateCriterioLabel_nombre}" for="nombre" />
                                 <p:inputText id="nombre" value="#{criterioController.selected.nombre}" title="#{bundle.CreateCriterioTitle_nombre}" />
-                                <p:commandButton actionListener="#{criterioController.create}" value="Aceptar" oncomplete="handleSubmit(args,'CriterioCreateDialog');"/> 
+                                <p:commandButton actionListener="#{criterioController.create}" value="Aceptar" /> 
                                 
                     
+                    
                         
-                   </p:panel>
+                    </p:panel>
                    
                 </h:form>
+                
+                <ui:include src="Listar.xhtml"/>
             </ui:define>
                 
 
