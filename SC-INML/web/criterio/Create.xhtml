@@ -11,13 +11,11 @@
         <p:dialog id="CriterioCreateDlg" widgetVar="CriterioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCriterioTitle}">
             <h:form id="CriterioCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="1" rendered="#{criterioController.selected != null}">
-                       <!-- <p:outputLabel value="#{bundle.CreateCriterioLabel_idCRITERIO}" for="idCRITERIO" />
-                        <p:inputText id="idCRITERIO" value="#{criterioController.selected.idCRITERIO}" title="#{bundle.CreateCriterioTitle_idCRITERIO}" required="false" requiredMessage="#{bundle.CreateCriterioRequiredMessage_idCRITERIO}"/> -->
-                        <p:outputLabel value="#{bundle.CreateCriterioLabel_nombre}" for="nombre" /> 
-                        <p:inputText id="nombre" value="#{criterioController.selected.nombre}" title="#{bundle.CreateCriterioTitle_nombre}" />
+                    <p:panelGrid columns="2" rendered="#{criterioController.selected != null}">
+                        <p:outputLabel value="#{bundle.Label_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{criterioController.selected.nombre}" title="#{bundle.CreateCriterioTitle_nombre}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{criterioController.create}" value="#{bundle.Save}" update="display,:CriterioListForm:datalist,:growl" oncomplete="handleSubmit(args,'CriterioCreateDialog');"/>
+                    <p:commandButton actionListener="#{criterioController.create}" value="#{bundle.Save}" update="display,:CriterioListForm:datalist,:growl" oncomplete="handleSubmit(args,'CriterioCreateDialog');" onclick="CriterioCreateDialog.hide()"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CriterioCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

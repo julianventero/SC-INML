@@ -6,19 +6,17 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/template-admin.xhtml">
 
 
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListCriterioTitle}"></h:outputText>
-        </ui:define>
+        
 
-        <ui:define name="body">
+        <ui:define name="contenido">
             <h:form id="CriterioListForm">
                 <p:panel header="#{bundle.ListCriterioTitle}">
                     <p:dataTable id="datalist" value="#{criterioController.items}" var="item"
                                  selectionMode="single" selection="#{criterioController.selected}"
-                                 paginator="true"
+                                 paginator="true"  paginatorPosition="bottom"
                                  rowKey="#{item.idCRITERIO}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
