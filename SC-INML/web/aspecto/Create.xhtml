@@ -12,11 +12,9 @@
             <h:form id="AspectoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{aspectoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateAspectoLabel_idASPECTO}" for="idASPECTO" />
-                        <p:inputText id="idASPECTO" value="#{aspectoController.selected.idASPECTO}" title="#{bundle.CreateAspectoTitle_idASPECTO}" required="true" requiredMessage="#{bundle.CreateAspectoRequiredMessage_idASPECTO}"/>
-                        <p:outputLabel value="#{bundle.CreateAspectoLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{aspectoController.selected.nombre}" title="#{bundle.CreateAspectoTitle_nombre}" />
-                        <p:outputLabel value="#{bundle.CreateAspectoLabel_CRITERIOidCRITERIO}" for="CRITERIOidCRITERIO" />
+                        <p:outputLabel value="#{bundle.Label_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{aspectoController.selected.nombre}" title="#{bundle.Nombre_del_aspecto}" />
+                        <p:outputLabel value="#{bundle.Criterio}" for="CRITERIOidCRITERIO" />
                         <p:selectOneMenu id="CRITERIOidCRITERIO" value="#{aspectoController.selected.CRITERIOidCRITERIO}" required="true" requiredMessage="#{bundle.EditAspectoRequiredMessage_CRITERIOidCRITERIO}">
                             <f:selectItems value="#{criterioController.itemsAvailableSelectOne}"
                                            var="CRITERIOidCRITERIOItem"
