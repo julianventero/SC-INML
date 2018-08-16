@@ -16,7 +16,7 @@
                         <p:inputText id="nombre" value="#{criterioController.selected.nombre}" />
                     </p:panelGrid>
                     <div id="botones" align="Center">
-                        <p:commandButton actionListener="#{criterioController.update}" value="#{bundle.Save}" update="display,:CriterioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CriterioEditDialog');"/>
+                        <p:commandButton actionListener="#{criterioController.update}" value="#{bundle.Save}" update="display,:CriterioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CriterioEditDialog');" onclick="CriterioEditDialog.hide()"/>
                         <p:commandButton value="#{bundle.Cancel}" onclick="CriterioEditDialog.hide()"/>
                     </div>
                 </h:panelGroup>

@@ -11,18 +11,20 @@
         <p:dialog id="AspectoCreateDlg" widgetVar="AspectoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAspectoTitle}">
             <h:form id="AspectoCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{aspectoController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{aspectoController.selected != null}" style="margin-bottom:10px">
                         <p:outputLabel value="#{bundle.Label_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{aspectoController.selected.nombre}" title="#{bundle.Nombre_del_aspecto}" />
                         <p:outputLabel value="#{bundle.Criterio}" for="CRITERIOidCRITERIO" />
-                        <p:selectOneMenu id="CRITERIOidCRITERIO" value="#{aspectoController.selected.CRITERIOidCRITERIO}" required="true" requiredMessage="#{bundle.EditAspectoRequiredMessage_CRITERIOidCRITERIO}">
+                        <p:selectOneMenu id="CRITERIOidCRITERIO" value="#{aspectoController.selected.CRITERIOidCRITERIO}" >
                             <f:selectItems value="#{criterioController.itemsAvailableSelectOne}"
                                            var="CRITERIOidCRITERIOItem"
                                            itemValue="#{CRITERIOidCRITERIOItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{aspectoController.create}" value="#{bundle.Save}" update="display,:AspectoListForm:datalist,:growl" oncomplete="handleSubmit(args,'AspectoCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="AspectoCreateDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton actionListener="#{aspectoController.create}" value="#{bundle.Save}" update="display,:AspectoListForm:datalist,:growl" oncomplete="handleSubmit(args,'AspectoCreateDialog');" onclick="CriterioCreateDialog.hide()"/>
+                        <p:commandButton value="#{bundle.Cancel}" onclick="AspectoCreateDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>
