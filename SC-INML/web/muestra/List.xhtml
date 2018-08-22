@@ -6,22 +6,16 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
-
-
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListMuestraTitle}"></h:outputText>
-        </ui:define>
-
-        <ui:define name="body">
+    <ui:composition template="/template-admin.xhtml">
+    
+        <ui:define name="contenido">
             <h:form id="MuestraListForm">
-                <p:panel header="#{bundle.ListMuestraTitle}">
+                <p:panel >
                     <p:dataTable id="datalist" value="#{muestraController.items}" var="item"
                                  selectionMode="single" selection="#{muestraController.selected}"
-                                 paginator="true"
+                                 paginator="true" paginatorPosition="bottom"
                                  rowKey="#{item.idMUESTRA}"
-                                 rows="10"
-                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 rows="5"
                                  >
 
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
@@ -29,23 +23,17 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMuestraTitle_idMUESTRA}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idMUESTRA}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMuestraTitle_planeada}"/>
+                                <h:outputText value="#{bundle.Muestra_planeada}"/>
                             </f:facet>
                             <h:outputText value="#{item.planeada}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMuestraTitle_ejecutada}"/>
+                                <h:outputText value="#{bundle.Muestra_ejecutada}"/>
                             </f:facet>
                             <h:outputText value="#{item.ejecutada}"/>
                         </p:column>
-                        <f:facet name="footer">
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{muestraController.prepareCreate}" update=":MuestraCreateForm" oncomplete="PF('MuestraCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MuestraViewForm" oncomplete="PF('MuestraViewDialog').show()" disabled="#{empty muestraController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MuestraEditForm" oncomplete="PF('MuestraEditDialog').show()" disabled="#{empty muestraController.selected}"/>

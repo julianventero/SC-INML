@@ -30,7 +30,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.Criterio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.CRITERIOidCRITERIO}"/>
+                            <h:outputText value="#{item.CRITERIOidCRITERIO.nombre}" />
                         </p:column>
                         <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{aspectoController.prepareCreate}" update=":AspectoCreateForm" oncomplete="PF('AspectoCreateDialog').show()"/>

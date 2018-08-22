@@ -11,14 +11,14 @@
         <p:dialog id="PermisosEditDlg" widgetVar="PermisosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPermisosTitle}">
             <h:form id="PermisosEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{permisosController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditPermisosLabel_idPERMISOS}" for="idPERMISOS" />
-                        <p:inputText id="idPERMISOS" value="#{permisosController.selected.idPERMISOS}" title="#{bundle.EditPermisosTitle_idPERMISOS}" required="true" requiredMessage="#{bundle.EditPermisosRequiredMessage_idPERMISOS}"/>
-                        <p:outputLabel value="#{bundle.EditPermisosLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{permisosController.selected.nombre}" title="#{bundle.EditPermisosTitle_nombre}" />
+                    <p:panelGrid columns="2" rendered="#{permisosController.selected != null}" style="margin-bottom:10px">
+                        <p:outputLabel value="#{bundle.Label_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{permisosController.selected.nombre}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{permisosController.update}" value="#{bundle.Save}" update="display,:PermisosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PermisosEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="PermisosEditDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton actionListener="#{permisosController.update}" value="#{bundle.Save}" update="display,:PermisosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PermisosEditDialog');" onclick="PermisosEditDialog.hide()"/>
+                        <p:commandButton value="#{bundle.Cancel}" onclick="PermisosEditDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>

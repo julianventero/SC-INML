@@ -11,7 +11,7 @@
         <p:dialog id="MunicipioEditDlg" widgetVar="MunicipioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditMunicipioTitle}">
             <h:form id="MunicipioEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{municipioController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{municipioController.selected != null}" style="margin-bottom:10px">
                         <p:outputLabel value="#{bundle.EditMunicipioLabel_idMUNICIPIO}" for="idMUNICIPIO" />
                         <p:inputText id="idMUNICIPIO" value="#{municipioController.selected.idMUNICIPIO}" title="#{bundle.EditMunicipioTitle_idMUNICIPIO}" required="true" requiredMessage="#{bundle.EditMunicipioRequiredMessage_idMUNICIPIO}"/>
                         <p:outputLabel value="#{bundle.EditMunicipioLabel_nombre}" for="nombre" />
@@ -24,8 +24,10 @@
                                            itemValue="#{SECCIONALidSECCIONALItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{municipioController.update}" value="#{bundle.Save}" update="display,:MunicipioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MunicipioEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="MunicipioEditDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton actionListener="#{municipioController.update}" value="#{bundle.Save}" update="display,:MunicipioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MunicipioEditDialog');" onclick="MunicipioEditDialog.hide()"/>
+                        <p:commandButton value="#{bundle.Cancel}" onclick="MunicipioEditDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>

@@ -11,13 +11,15 @@
         <p:dialog id="PermisosViewDlg" widgetVar="PermisosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPermisosTitle}">
             <h:form id="PermisosViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{permisosController.selected != null}">
-                        <h:outputText value="#{bundle.ViewPermisosLabel_idPERMISOS}"/>
-                        <h:outputText value="#{permisosController.selected.idPERMISOS}" title="#{bundle.ViewPermisosTitle_idPERMISOS}"/>
-                        <h:outputText value="#{bundle.ViewPermisosLabel_nombre}"/>
-                        <h:outputText value="#{permisosController.selected.nombre}" title="#{bundle.ViewPermisosTitle_nombre}"/>
+                    <p:panelGrid columns="2" rendered="#{permisosController.selected != null}" style="margin-bottom:10px">
+                        <h:outputText value="#{bundle.Label_id}"/>
+                        <h:outputText value="#{permisosController.selected.idPERMISOS}"/>
+                        <h:outputText value="#{bundle.Label_nombre}"/>
+                        <h:outputText value="#{permisosController.selected.nombre}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="PermisosViewDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton value="#{bundle.Close}" onclick="PermisosViewDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>

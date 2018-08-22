@@ -6,36 +6,24 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
+    <ui:composition template="/template-admin.xhtml">
 
 
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListPeriodicidadTitle}"></h:outputText>
-        </ui:define>
-
-        <ui:define name="body">
+        <ui:define name="contenido">
             <h:form id="PeriodicidadListForm">
-                <p:panel header="#{bundle.ListPeriodicidadTitle}">
+                <p:panel >
                     <p:dataTable id="datalist" value="#{periodicidadController.items}" var="item"
                                  selectionMode="single" selection="#{periodicidadController.selected}"
-                                 paginator="true"
+                                 paginator="true" paginatorPosition="bottom"
                                  rowKey="#{item.idPERIODICIDAD}"
-                                 rows="10"
-                                 rowsPerPageTemplate="10,20,30,40,50"
-                                 >
+                                 rows="10" >
 
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPeriodicidadTitle_idPERIODICIDAD}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idPERIODICIDAD}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPeriodicidadTitle_fechaInicio}"/>
+                                <h:outputText value="#{bundle.Label_fechaInicio}"/>
                             </f:facet>
                             <h:outputText value="#{item.fechaInicio}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -43,7 +31,7 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPeriodicidadTitle_fechaFin}"/>
+                                <h:outputText value="#{bundle.Label_fechaFin}"/>
                             </f:facet>
                             <h:outputText value="#{item.fechaFin}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -51,11 +39,11 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPeriodicidadTitle_ESTADOidESTADO}"/>
+                                <h:outputText value="#{bundle.Estado_periodicidad}"/>
                             </f:facet>
                             <h:outputText value="#{item.ESTADOidESTADO}"/>
                         </p:column>
-                        <f:facet name="footer">
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{periodicidadController.prepareCreate}" update=":PeriodicidadCreateForm" oncomplete="PF('PeriodicidadCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":PeriodicidadViewForm" oncomplete="PF('PeriodicidadViewDialog').show()" disabled="#{empty periodicidadController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":PeriodicidadEditForm" oncomplete="PF('PeriodicidadEditDialog').show()" disabled="#{empty periodicidadController.selected}"/>

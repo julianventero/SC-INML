@@ -11,7 +11,7 @@
         <p:dialog id="ServicioForenseEditDlg" widgetVar="ServicioForenseEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditServicioForenseTitle}">
             <h:form id="ServicioForenseEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{servicioForenseController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{servicioForenseController.selected != null}" style="margin-bottom:10px">
                         <p:outputLabel value="#{bundle.EditServicioForenseLabel_idSERVICIOFORENSE}" for="idSERVICIOFORENSE" />
                         <p:inputText id="idSERVICIOFORENSE" value="#{servicioForenseController.selected.idSERVICIOFORENSE}" title="#{bundle.EditServicioForenseTitle_idSERVICIOFORENSE}" required="true" requiredMessage="#{bundle.EditServicioForenseRequiredMessage_idSERVICIOFORENSE}"/>
                         <p:outputLabel value="#{bundle.EditServicioForenseLabel_nombre}" for="nombre" />

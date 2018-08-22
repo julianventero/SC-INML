@@ -11,14 +11,14 @@
         <p:dialog id="EstadoUCreateDlg" widgetVar="EstadoUCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEstadoUTitle}">
             <h:form id="EstadoUCreateForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{estadoUController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateEstadoULabel_idESTADO}" for="idESTADO" />
-                        <p:inputText id="idESTADO" value="#{estadoUController.selected.idESTADO}" title="#{bundle.CreateEstadoUTitle_idESTADO}" required="true" requiredMessage="#{bundle.CreateEstadoURequiredMessage_idESTADO}"/>
-                        <p:outputLabel value="#{bundle.CreateEstadoULabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{estadoUController.selected.nombre}" title="#{bundle.CreateEstadoUTitle_nombre}" />
+                    <p:panelGrid columns="2" rendered="#{estadoUController.selected != null}" style="margin-bottom:10px">
+                        <p:outputLabel value="#{bundle.Label_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{estadoUController.selected.nombre}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{estadoUController.create}" value="#{bundle.Save}" update="display,:EstadoUListForm:datalist,:growl" oncomplete="handleSubmit(args,'EstadoUCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="EstadoUCreateDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton actionListener="#{estadoUController.create}" value="#{bundle.Save}" update="display,:EstadoUListForm:datalist,:growl" oncomplete="handleSubmit(args,'EstadoUCreateDialog');" onclick="EstadoUCreateDialog.hide()"/>
+                        <p:commandButton value="#{bundle.Cancel}" onclick="EstadoUCreateDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>

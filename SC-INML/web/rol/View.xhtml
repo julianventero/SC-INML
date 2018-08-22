@@ -11,13 +11,15 @@
         <p:dialog id="RolViewDlg" widgetVar="RolViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRolTitle}">
             <h:form id="RolViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{rolController.selected != null}">
-                        <h:outputText value="#{bundle.ViewRolLabel_idROL}"/>
-                        <h:outputText value="#{rolController.selected.idROL}" title="#{bundle.ViewRolTitle_idROL}"/>
-                        <h:outputText value="#{bundle.ViewRolLabel_nombre}"/>
-                        <h:outputText value="#{rolController.selected.nombre}" title="#{bundle.ViewRolTitle_nombre}"/>
+                    <p:panelGrid columns="2" rendered="#{rolController.selected != null}" style="margin-bottom:10px">
+                        <h:outputText value="#{bundle.Label_id}"/>
+                        <h:outputText value="#{rolController.selected.idROL}" />
+                        <h:outputText value="#{bundle.Label_nombre}"/>
+                        <h:outputText value="#{rolController.selected.nombre}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="RolViewDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton value="#{bundle.Close}" onclick="RolViewDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>

@@ -11,13 +11,15 @@
         <p:dialog id="EstadoPViewDlg" widgetVar="EstadoPViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEstadoPTitle}">
             <h:form id="EstadoPViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{estadoPController.selected != null}">
-                        <h:outputText value="#{bundle.ViewEstadoPLabel_idESTADO}"/>
-                        <h:outputText value="#{estadoPController.selected.idESTADO}" title="#{bundle.ViewEstadoPTitle_idESTADO}"/>
-                        <h:outputText value="#{bundle.ViewEstadoPLabel_nombre}"/>
-                        <h:outputText value="#{estadoPController.selected.nombre}" title="#{bundle.ViewEstadoPTitle_nombre}"/>
+                    <p:panelGrid columns="2" rendered="#{estadoPController.selected != null}" style="margin-bottom:10px">
+                        <h:outputText value="#{bundle.Label_id}"/>
+                        <h:outputText value="#{estadoPController.selected.idESTADO}"/>
+                        <h:outputText value="#{bundle.Label_nombre}"/>
+                        <h:outputText value="#{estadoPController.selected.nombre}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="EstadoPViewDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton value="#{bundle.Close}" onclick="EstadoPViewDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>

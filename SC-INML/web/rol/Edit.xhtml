@@ -11,14 +11,14 @@
         <p:dialog id="RolEditDlg" widgetVar="RolEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRolTitle}">
             <h:form id="RolEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{rolController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditRolLabel_idROL}" for="idROL" />
-                        <p:inputText id="idROL" value="#{rolController.selected.idROL}" title="#{bundle.EditRolTitle_idROL}" required="true" requiredMessage="#{bundle.EditRolRequiredMessage_idROL}"/>
-                        <p:outputLabel value="#{bundle.EditRolLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{rolController.selected.nombre}" title="#{bundle.EditRolTitle_nombre}" />
+                    <p:panelGrid columns="2" rendered="#{rolController.selected != null}" style="margin-bottom:10px">
+                        <p:outputLabel value="#{bundle.Label_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{rolController.selected.nombre}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{rolController.update}" value="#{bundle.Save}" update="display,:RolListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RolEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="RolEditDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton actionListener="#{rolController.update}" value="#{bundle.Save}" update="display,:RolListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RolEditDialog');" onclick="RolEditDialog.hide()"/>
+                        <p:commandButton value="#{bundle.Cancel}" onclick="RolEditDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>
