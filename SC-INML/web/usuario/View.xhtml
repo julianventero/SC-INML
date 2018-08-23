@@ -11,33 +11,25 @@
         <p:dialog id="UsuarioViewDlg" widgetVar="UsuarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUsuarioTitle}">
             <h:form id="UsuarioViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_cedula}"/>
-                        <h:outputText value="#{usuarioController.selected.cedula}" title="#{bundle.ViewUsuarioTitle_cedula}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_nombre}"/>
-                        <h:outputText value="#{usuarioController.selected.nombre}" title="#{bundle.ViewUsuarioTitle_nombre}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_apellido}"/>
-                        <h:outputText value="#{usuarioController.selected.apellido}" title="#{bundle.ViewUsuarioTitle_apellido}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_contraseña}"/>
-                        <h:outputText value="#{usuarioController.selected.contraseña}" title="#{bundle.ViewUsuarioTitle_contraseña}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_fechaCreación}"/>
-                        <h:outputText value="#{usuarioController.selected.fechaCreación}" title="#{bundle.ViewUsuarioTitle_fechaCreación}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_ultimoAcceso}"/>
-                        <h:outputText value="#{usuarioController.selected.ultimoAcceso}" title="#{bundle.ViewUsuarioTitle_ultimoAcceso}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_correo}"/>
-                        <h:outputText value="#{usuarioController.selected.correo}" title="#{bundle.ViewUsuarioTitle_correo}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_ESTADOUidESTADO}"/>
-                        <h:outputText value="#{usuarioController.selected.ESTADOUidESTADO}" title="#{bundle.ViewUsuarioTitle_ESTADOUidESTADO}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_GRUPOidGRUPO}"/>
-                        <h:outputText value="#{usuarioController.selected.GRUPOidGRUPO}" title="#{bundle.ViewUsuarioTitle_GRUPOidGRUPO}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_ROLidROL}"/>
-                        <h:outputText value="#{usuarioController.selected.ROLidROL}" title="#{bundle.ViewUsuarioTitle_ROLidROL}"/>
+                    <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}" style="margin-bottom:10px">
+                        <h:outputText value="#{bundle.Label_cedula}"/>
+                        <h:outputText value="#{usuarioController.selected.cedula}" />
+                        <h:outputText value="#{bundle.Label_nombre}"/>
+                        <h:outputText value="#{usuarioController.selected.nombre}" />
+                        <h:outputText value="#{bundle.Label_apellido}"/>
+                        <h:outputText value="#{usuarioController.selected.apellido}" />
+                        <h:outputText value="#{bundle.Label_correo}"/>
+                        <h:outputText value="#{usuarioController.selected.correo}"/>
+                        <h:outputText value="#{bundle.Estado_usuarios}"/>
+                        <h:outputText value="#{usuarioController.selected.ESTADOUidESTADO}" />
+                        <h:outputText value="#{bundle.Grupo}"/>
+                        <h:outputText value="#{usuarioController.selected.GRUPOidGRUPO}"/>
+                        <h:outputText value="#{bundle.Rol}"/>
+                        <h:outputText value="#{usuarioController.selected.ROLidROL}"/>
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="UsuarioViewDialog.hide()"/>
+                    <div id="botones" align="Center">
+                        <p:commandButton value="#{bundle.Close}" onclick="UsuarioViewDialog.hide()"/>
+                    </div>    
                 </h:panelGroup>
             </h:form>
         </p:dialog>

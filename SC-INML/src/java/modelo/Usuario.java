@@ -59,12 +59,12 @@ public class Usuario implements Serializable {
     @Column(name = "apellido")
     private String apellido;
     @Size(max = 8)
-    @Column(name = "contrase\u00f1a")
+    @Column(name = "contrasena")
     private String contraseña;
-    @Column(name = "fecha creaci\u00f3n")
+    @Column(name = "fecha_creacion")
     @Temporal(TemporalType.DATE)
     private Date fechaCreación;
-    @Column(name = "ultimo acceso")
+    @Column(name = "ultimo_acceso")
     @Temporal(TemporalType.DATE)
     private Date ultimoAcceso;
     @Size(max = 45)

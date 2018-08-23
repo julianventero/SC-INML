@@ -11,7 +11,7 @@
 
         <ui:define name="contenido">
             <h:form id="UsuarioListForm">
-                <p:panel header="#{bundle.ListUsuarioTitle}">
+                <p:panel >
                     <p:dataTable id="datalist" value="#{usuarioController.items}" var="item"
                                  selectionMode="single" selection="#{usuarioController.selected}"
                                  paginator="true" paginatorPosition="bottom"
@@ -23,69 +23,53 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_cedula}"/>
+                                <h:outputText value="#{bundle.Label_cedula}"/>
                             </f:facet>
                             <h:outputText value="#{item.cedula}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_nombre}"/>
+                                <h:outputText value="#{bundle.Label_nombre}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_apellido}"/>
+                                <h:outputText value="#{bundle.Label_apellido}"/>
                             </f:facet>
                             <h:outputText value="#{item.apellido}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_contraseña}"/>
+                                <h:outputText value="#{bundle.Label_contraseña}"/>
                             </f:facet>
                             <h:outputText value="#{item.contraseña}"/>
                         </p:column>
-                        <p:column>
+                       <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_fechaCreación}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechaCreación}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_ultimoAcceso}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.ultimoAcceso}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_correo}"/>
+                                <h:outputText value="#{bundle.Label_correo}"/>
                             </f:facet>
                             <h:outputText value="#{item.correo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_ESTADOUidESTADO}"/>
+                                <h:outputText value="#{bundle.Estado_usuarios}"/>
                             </f:facet>
-                            <h:outputText value="#{item.ESTADOUidESTADO}"/>
+                            <h:outputText value="#{item.ESTADOUidESTADO.nombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_GRUPOidGRUPO}"/>
+                                <h:outputText value="#{bundle.Grupo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.GRUPOidGRUPO}"/>
+                            <h:outputText value="#{item.GRUPOidGRUPO.nombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_ROLidROL}"/>
+                                <h:outputText value="#{bundle.Rol}"/>
                             </f:facet>
-                            <h:outputText value="#{item.ROLidROL}"/>
+                            <h:outputText value="#{item.ROLidROL.nombre}"/>
                         </p:column>
-                        <f:facet name="footer">
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{usuarioController.prepareCreate}" update=":UsuarioCreateForm" oncomplete="PF('UsuarioCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":UsuarioViewForm" oncomplete="PF('UsuarioViewDialog').show()" disabled="#{empty usuarioController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":UsuarioEditForm" oncomplete="PF('UsuarioEditDialog').show()" disabled="#{empty usuarioController.selected}"/>

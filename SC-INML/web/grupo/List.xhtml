@@ -27,12 +27,7 @@
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.Cedula}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.USUARIOcedula}"/>
-                        </p:column>
+                        
                         <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{grupoController.prepareCreate}" update=":GrupoCreateForm" oncomplete="PF('GrupoCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":GrupoViewForm" oncomplete="PF('GrupoViewDialog').show()" disabled="#{empty grupoController.selected}"/>
